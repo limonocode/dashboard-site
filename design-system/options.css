@@ -1,0 +1,146 @@
+/* Options page layout. Reuses the design tokens from newtab.css; layout only. */
+
+body {
+  display: block;
+  overflow: auto;
+}
+
+.options {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.options__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.options__header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.options__header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.options__section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.options__section h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.options__hint {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin: 4px 0 12px;
+}
+
+.options__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.connector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.connector:last-child {
+  border-bottom: none;
+}
+
+.connector__label { flex: 1; }
+.connector__label-old {
+  font-size: 14px;
+}
+
+.options__row--split {
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.rule-form {
+  display: grid;
+  grid-template-columns: 1.2fr auto 1fr 1fr auto;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rule-form input,
+.rule-form select {
+  min-width: 0;
+}
+
+.options__error {
+  color: #dc2626;
+  font-size: 13px;
+  margin: 4px 0 8px;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.rule:last-child {
+  border-bottom: none;
+}
+
+.rule__pattern {
+  font-weight: 600;
+}
+
+.rule__effects {
+  color: var(--text-dim);
+  flex: 1;
+}
+
+/* Диагностика: превью последних ошибок / полный отчёт для ручного копирования. */
+.diag__preview {
+  margin-top: 12px;
+  padding: 10px 12px;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--bg-input, rgba(0, 0, 0, 0.04));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-dim);
+}
+
+/* 0.12.2: иконки платформ в импортёрах. */
+.connector__icon {
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px; margin-right: 10px; flex: none;
+  color: var(--text-dim); background: var(--surface-2);
+}
+.connector__icon svg { display: block; }
+.connector__icon--tile { color: #fff; font-weight: 700; font-size: 13px; }
