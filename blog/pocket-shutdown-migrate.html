@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pocket shut down — how to rescue your saves in 2026</title>
+<meta name="description" content="Pocket was discontinued in July 2025. A practical guide to exporting what's left and moving 10+ years of saves somewhere that won't disappear.">
+<link rel="canonical" href="https://limonocode.github.io/dashboard-site/blog/pocket-shutdown-migrate.html">
+<link rel="icon" href="../assets/icon.png"><link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div class="wrap">
+<header class="site"><img src="../assets/icon.png" alt=""><a class="brand" href="../" style="text-decoration:none;color:inherit">Dashboard New Tab</a><nav><a href="index.html">Blog</a></nav></header>
+<article>
+<h1>Pocket is gone. Here's how to rescue your saves.</h1>
+<p class="meta">Updated July 2026</p>
+
+<p>Pocket's Premium subscriptions stopped on May 22, 2025, the service switched off on
+July 8, 2025, and the export window officially closed on October 8, 2025. Somewhere
+between 20 and 30 million people had saves in Pocket — over two billion articles —
+and most of that reading history is now trapped in export files sitting in download
+folders, or gone entirely.</p>
+
+<p>If you exported your archive before the shutdown, this guide is about giving those
+saves a home that can't be shut down remotely. If you didn't, skip to the last section.</p>
+
+<h2>What a Pocket export actually contains</h2>
+<p>Pocket produced two formats over the years, and both are still importable today:</p>
+<ul>
+<li><b>The legacy HTML export</b> (<code>ril_export.html</code>) — a Netscape-style
+bookmarks file with your unread and archived lists, timestamps and tags.</li>
+<li><b>The 2025 shutdown archive</b> — a ZIP containing CSV files
+(<code>part_000000.csv</code> and so on) with title, URL, added time, tags and status
+columns.</li>
+</ul>
+
+<h2>What to look for in a new home</h2>
+<p>Pocket's shutdown taught one lesson clearly: a cloud service can take your library
+with it. Whatever you migrate to, check three things:</p>
+<ol>
+<li><b>It imports both Pocket formats</b> — many tools only read the HTML file.</li>
+<li><b>It can export everything back out</b> — HTML, CSV, JSON, anything. If a tool has
+import but no export, you're rebuilding the same trap.</li>
+<li><b>Ideally, it works without an account</b> — data on your own device can't be
+discontinued.</li>
+</ol>
+
+<h2>Migrating to Dashboard New Tab</h2>
+<p><a href="../">Dashboard New Tab</a> is a free, local-first new tab for Chrome that we
+built partly <em>because</em> of the Pocket shutdown. The migration takes about a minute:
+Settings → Import → Pocket → choose your <code>ril_export.html</code> or the CSV from the
+shutdown ZIP. Both vintages are parsed locally in your browser; unread and archive lists
+land as separate groups with tags preserved. Nothing is uploaded anywhere — there is no
+server to upload to.</p>
+<p>After import you get what Pocket never had: instant search across everything
+(including your Instagram/TikTok/Reddit saves if you import those too), read-later
+queues, a “forgotten gem” resurfaced on every new tab, and one-click export to JSON or
+Markdown for Obsidian and Notion — so you are never locked in again.</p>
+
+<h2>If you missed the export window</h2>
+<p>The official window closed in October 2025, and Mozilla stated data would be deleted
+after that. Two partial recoveries are still worth trying: your email archive (Pocket
+digest emails contain links you saved), and your browser history if you read mostly on
+desktop. It's not everything, but a few hundred rediscovered links beat zero.</p>
+
+<blockquote>The broader lesson: saves you don't control aren't really yours. Local-first
+tools exist so the next shutdown is someone else's problem.</blockquote>
+</article>
+<footer class="site"><p><a href="../">← Dashboard New Tab — all your saves in one space</a></p></footer>
+</div></body></html>

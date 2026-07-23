@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://limonocode.github.io/dashboard-site/sitemap.xml
