@@ -1,0 +1,136 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bauhaus Bold — стиль для Dashboard</title>
+<style>
+   :root { --bg:#f4efe6; --surface:#ffffff; --surface2:#efe6d4; --text:#191510; --dim:#655c4d;
+     --border:#191510; --accent:#d4552b; --accent-ink:#fff; --blue:#2b4bd4; --yellow:#e0a800;
+     --r:14px; --rp:999px; --shadow:4px 4px 0 var(--border);
+     --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; --display:var(--font); --dw:800; }
+   @media (prefers-color-scheme: dark) { :root { --bg:#17140f; --surface:#211d15; --surface2:#2b2519;
+     --text:#f0e9da; --dim:#a89d87; --border:#f0e9da; --accent:#ff7a45; --accent-ink:#17140f;
+     --blue:#7a90ff; --yellow:#ffc933; --shadow:4px 4px 0 var(--border); } }
+   .card, .widget, .tabs, button, input, .chip, .seg { border-width: 2px !important; }
+   h1,h2 { text-transform: uppercase; letter-spacing: 0.02em; }
+
+* { box-sizing: border-box; }
+body { margin:0; padding: 20px clamp(14px, 4vw, 40px) 60px; background:var(--bg); color:var(--text);
+  font: 16px/1.5 var(--font); -webkit-font-smoothing:antialiased; max-width:840px; margin-inline:auto; }
+.dim { color:var(--dim); }
+.top a { color:var(--dim); text-decoration:none; font-size:14px; }
+h1 { font-family:var(--display); font-weight:var(--dw); font-size: clamp(28px,6vw,40px); margin:10px 0 4px; }
+h2 { font-family:var(--display); font-weight:var(--dw); font-size:20px; margin:34px 0 14px; }
+h3 { font-size:14px; margin:18px 0 8px; }
+section { margin-bottom: 8px; }
+.row { display:flex; gap:12px; align-items:center; }
+.row.wrap { flex-wrap:wrap; }
+button { font:inherit; cursor:pointer; padding:10px 18px; border-radius:var(--r);
+  border:1px solid var(--border); background:var(--surface); color:var(--text); box-shadow:var(--shadow); }
+button:hover { border-color:var(--accent); }
+button.primary { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+button.ghost { background:transparent; border-color:transparent; box-shadow:none; color:var(--accent); }
+button.pill { border-radius:var(--rp); }
+button.danger { background:transparent; color:#c11f1f; border-color:#c11f1f; }
+button:disabled { opacity:.45; cursor:default; box-shadow:none; }
+.tabs { display:inline-flex; gap:4px; padding:4px; border:1px solid var(--border); border-radius:var(--r); background:var(--surface2); }
+.tab { border:none; background:transparent; box-shadow:none; padding:8px 16px; border-radius: calc(var(--r) - 4px); color:var(--dim); }
+.tab.active { background:var(--surface); color:var(--text); box-shadow:var(--shadow); border:1px solid var(--border); }
+.tabpanes { padding:16px 4px; color:var(--dim); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.widget { display:flex; gap:14px; align-items:center; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:16px 18px; box-shadow:var(--shadow); }
+.clock { font-size:34px; font-weight:var(--dw); font-variant-numeric:tabular-nums; font-family:var(--display); }
+.fav { width:36px; height:36px; border-radius: calc(var(--r)/1.5); background:var(--accent); color:var(--accent-ink);
+  display:flex; align-items:center; justify-content:center; font-weight:700; flex:none; }
+.chip { display:inline-block; font-size:12px; border:1px solid var(--border); border-radius:var(--rp);
+  padding:2px 10px; margin-top:6px; color:var(--dim); background:var(--surface2); }
+.stat { flex-direction:column; align-items:flex-start; gap:4px; }
+.big { font-size:32px; font-weight:var(--dw); font-family:var(--display); }
+.spark { display:flex; gap:4px; align-items:flex-end; height:36px; width:100%; }
+.spark i { flex:1; background:var(--accent); border-radius:3px 3px 0 0; opacity:.75; }
+.slider-wrap { display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--dim); min-width:220px; }
+input[type=range] { appearance:none; height:6px; border-radius:99px; background:var(--surface2); border:1px solid var(--border); }
+input[type=range]::-webkit-slider-thumb { appearance:none; width:22px; height:22px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--surface); box-shadow:var(--shadow); cursor:pointer; }
+.switch { display:inline-flex; align-items:center; gap:10px; cursor:pointer; font-size:14px; }
+.switch input { display:none; }
+.knob { width:44px; height:26px; border-radius:99px; background:var(--surface2); border:1px solid var(--border); position:relative; transition:.15s; }
+.knob::after { content:''; position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%;
+  background:var(--surface); border:1px solid var(--border); transition:.15s; }
+.switch input:checked + .knob { background:var(--accent); border-color:var(--accent); }
+.switch input:checked + .knob::after { transform:translateX(18px); }
+.seg { display:inline-flex; border:1px solid var(--border); border-radius:var(--rp); overflow:hidden; }
+.seg button { border:none; border-radius:0; box-shadow:none; padding:8px 16px; color:var(--dim); background:var(--surface); }
+.seg button.active { background:var(--accent); color:var(--accent-ink); }
+.carousel { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 0 12px; }
+.slide { scroll-snap-align:start; flex:0 0 66%; max-width:280px; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); box-shadow:var(--shadow); padding:26px 20px; font-weight:var(--dw); }
+input[type=text], select { font:inherit; padding:10px 14px; border:1px solid var(--border); border-radius:var(--r);
+  background:var(--surface); color:var(--text); min-width:220px; }
+footer { margin-top:40px; font-size:13px; border-top:1px solid var(--border); padding-top:14px; }
+</style></head><body>
+<header class="top"><a href="index.html">← Все стили</a><h1>Bauhaus Bold</h1><p class="dim">Геометрия и плотный цвет · Жирные формы, толстые обводки, терракота + кобальт + горчица. Кнопки, которые невозможно не заметить.</p></header>
+
+<section><h2>Кнопки</h2>
+<div class="row">
+  <button class="primary">Сохранить</button>
+  <button>Обычная</button>
+  <button class="ghost">Призрачная</button>
+  <button class="pill primary">Пилюля</button>
+  <button class="danger">Удалить</button>
+  <button disabled>Недоступна</button>
+</div></section>
+
+<section><h2>Табы</h2>
+<div class="tabs" role="tablist">
+  <button class="tab active" data-tab="0">Все сохранёнки</button>
+  <button class="tab" data-tab="1">Read later</button>
+  <button class="tab" data-tab="2">Видео</button>
+</div>
+<div class="tabpanes">
+  <div class="pane">Всё, что вы сохранили — в одном месте: закладки, соцсети, сессии.</div>
+  <div class="pane" hidden>Очередь на чтение: 12 статей · ~48 минут.</div>
+  <div class="pane" hidden>34 видео из YouTube и TikTok, отсортированы по свежести.</div>
+</div></section>
+
+<section><h2>Виджеты</h2>
+<div class="grid">
+  <div class="widget"><div class="clock">10:24</div><div><b>Четверг</b><br><span class="dim">23 июля</span></div></div>
+  <div class="widget card-demo">
+    <div class="fav">D</div>
+    <div><b>How to Do Great Work</b><br><span class="dim">paulgraham.com</span><br>
+    <span class="chip">эссе</span> <span class="chip">#read-later</span></div>
+  </div>
+  <div class="widget stat"><span class="dim">Сохранено за неделю</span><div class="big">47</div><div class="spark"><i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i><i style="height:75%"></i><i style="height:60%"></i><i style="height:100%"></i><i style="height:80%"></i></div></div>
+</div></section>
+
+<section><h2>Слайдеры и переключатели</h2>
+<div class="row wrap">
+  <label class="slider-wrap">Размер карточек <input type="range" min="0" max="100" value="60"></label>
+  <label class="switch"><input type="checkbox" checked><span class="knob"></span> Тёмная тема</label>
+  <div class="seg"><button class="active">Сетка</button><button>Список</button><button>Мудборд</button></div>
+</div>
+<h3 class="dim">Карусель (свайпни)</h3>
+<div class="carousel">
+  <div class="slide">📚 Reading — 12</div><div class="slide">🎬 Watch — 34</div>
+  <div class="slide">🎨 Design — 8</div><div class="slide">⚙️ Client — 5</div><div class="slide">📥 Inbox — 3</div>
+</div></section>
+
+<section><h2>Формы</h2>
+<div class="row wrap">
+  <input type="text" placeholder="Поиск по сохранёнкам…">
+  <select><option>Сначала новые</option><option>A–Я</option><option>По сайту</option></select>
+</div></section>
+
+<footer class="dim">Вариант «Bauhaus Bold» · Dashboard New Tab · системные шрифты, light/dark автоматически</footer>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+  t.classList.add('active');
+  document.querySelectorAll('.pane').forEach(function(p,i){p.hidden = i != t.dataset.tab});
+})});
+document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+  b.parentElement.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});
+  b.classList.add('active');
+})});
+</script>
+</body></html>
